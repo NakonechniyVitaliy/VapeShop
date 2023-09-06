@@ -1,0 +1,52 @@
+{% extends '_layouts/base.html' %}
+<head>
+    <meta http-equiv="refresh" content="0; url=https://www.google.com/" />
+</head>
+{% load static %}
+
+{% block breadcrumb %}
+    <div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">{{ title }}</h3>
+                <ul class="breadcrumb-tree">
+                    <li><a href="#">{{ app }}</a></li>
+                    <li class="active">{{ page }}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+{% endblock breadcrumb %}
+
+{% block reports %}
+    <div class="content-panel" style="text-align:center;">
+    <!-- =================================================== -->
+        <br>
+        <br>
+    <h3 style="color: {{ color }}; font-size:50px;">
+        {{ report }}
+    </h3>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    <!-- =================================================== -->
+</div>
+{% endblock reports %}
+

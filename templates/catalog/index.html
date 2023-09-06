@@ -1,0 +1,182 @@
+{% extends '_layouts/base.html' %}
+
+{% load static %}
+
+{% block breadcrumb %}
+    <div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">{{ title }}</h3>
+                <ul class="breadcrumb-tree">
+                    <li><a href="#">{{ app }}</a></li>
+                    <li class="active">{{ page }}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+{% endblock breadcrumb %}
+
+{% block store %}
+	    <div class="content-panel">
+        	<div class="section">
+				<div class="container">
+					<div class="row">
+                    <!-- ---------------------------------------------- -->
+                    <div id="aside" class="col-md-3">
+						<!-- aside Widget -->
+						<div id="categories" class="aside">
+							{% if user.username == 'adminVitalii' %}
+								<a href="/catalog/create" style="text-decoration: none;font-size:22px;color:#F7A900">Додати товар +</a>
+							{% endif %}
+							<h3 class="aside-title">Категорії ({{ category_count }})</h3>
+							<div class="checkbox-filter">
+								{% for c in all_categories %}
+									<div class="input-checkbox">
+										<input type="checkbox" id="{{c.id}}" name="category">
+									<label for="{{c.id}}"
+										style="font-size: 1em; padding-left: 5px">
+										<span></span>
+										 ' '  {{c.name}}
+										<small>(0)</small>
+									</label>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+						<!-- /aside Widget -->
+
+						<!-- aside Widget -->
+						<div id="price" class="aside">
+							<h3 class="aside-title">Ціна ₴ </h3>
+							<div class="price-filter">
+								<div id="price-slider"></div>
+								<div class="input-number price-min">
+									<input id="price-min" type="number">
+									<span class="qty-up">+</span>
+									<span class="qty-down">-</span>
+								</div>
+								<span></span>
+								<div class="input-number price-max">
+									<input id="price-max" type="number">
+									<span class="qty-up">+</span>
+									<span class="qty-down">-</span>
+								</div>
+							</div>
+						</div>
+						<!-- /aside Widget -->
+
+						<!-- aside Widget -->
+						<div id="producers" class="aside">
+							<h3 class="aside-title">Бренди ({{ producer_count }})</h3>
+							<div class="checkbox-filter">
+								{% for b in all_producers %}
+									<div class="input-checkbox">
+										<input type="checkbox" id="{{b.id}}" name="producer">
+									<label for="{{b.id}}"
+										   style="font-size: 1em; padding-left: 5px">
+										<span></span>
+										' ' {{b.name}}
+										<small>(0)</small>
+									</label>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+						<!-- /aside Widget -->
+
+					</div>
+                    <div id="store" class="col-md-9">
+						<!-- store top filter -->
+						<div class="store-filter clearfix">
+							<div class="store-sort">
+								<div>
+									<p>Сортування:</p>
+
+											<select class="input-select">
+												<option value="0">За популярністю   </option>
+												<option value="1">За рейтингом </option>
+											</select>
+								</div>
+								<div>
+									<p>Відображення:</p>
+
+									<select class="input-select">
+										<option value="0">5 товарів</option>
+										<option value="1">10 товарів</option>
+										<option value="1">15 товарів</option>
+									</select>
+								</div>
+								<div style="margin-left:20%;color: #506172;font-family:sans-serif;">
+									<h1 style="font-size:16px">Усього товарів - {{products_count}}</h1>
+								</div>
+							</div>
+							<ul class="store-grid">
+								<li class="active"><i class="fa fa-th"></i></li>
+								<li><a href="#"><i class="fa fa-th-list"></i></a></li>
+							</ul>
+						</div>
+						<!-- /store top filter -->
+
+						<!-- store products -->
+						<div id="catalog-panel" class="row">
+						{% for p in page_obj %}
+							<div class="col-md-4 col-xs-6">
+								<div class="product">
+									<div class="product-img">
+										<img style="width:100%" src="/media/{{p.photo}}" alt="">
+										<div class="product-label"></div>
+									</div>
+									<div class="product-body">
+										<p class="product-category">{{p.category}}</p>
+										<h3 class="product-name"><a href="/catalog/detail/{{ p.id }}">{{p.name}}</a></h3>
+										<h4 class="product-price">{{p.price}} грн</h4>
+										{% if user.username == 'adminVitalii' %}
+											<a href="/catalog/delete/{{ p.id }}" style="text-decoration: none;font-size:15px;color:red">Видалити</a>
+										{% endif %}
+											<div class="product-btns">
+												<h4 class="product-price" style="display:none">{{p.price}} грн</h4>
+												<input type="hidden" value="{{p.id}}">
+											</div>
+									</div>
+									<div class="add-to-cart">
+										<input type="hidden" value="{{p.id}}">
+										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> до кошика</button>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+						</div>
+
+						<!-- /store products -->
+
+						<!-- store bottom filter -->
+						<div class="store-filter clearfix">
+							<ul class="store-pagination">
+									<li><a href="?page=1"><i class="fa fa-angle-double-left" style="color:#29292A"></i></a></li>
+								{% if page_obj.has_previous %}
+									<li><a href="?page={{ page_obj.previous_page_number }}"><i class="fa fa-angle-left" style="color:#29292A"></i></a></li>
+								{% endif %}
+									<span style="color:#29292A;font-size:17px">
+                						Сторінка {{ page_obj.number }} з {{ page_obj.paginator.num_pages }}
+            						</span>
+								{% if page_obj.has_next %}
+									<li><a href="?page={{ page_obj.next_page_number }}"><i class="fa fa-angle-right" style="color:#29292A"></i></a></li>
+								{% endif %}
+									<li><a href="?page={{ page_obj.paginator.num_pages }}"><i class="fa fa-angle-double-right" style="color:#29292A"></i></a></li>
+							</ul>
+						</div>
+						<!-- /store bottom filter -->
+					</div>
+                    <!-- /---------------------------------------------- -->
+					</div>
+				</div>
+			</div>
+    	</div>
+		<script src="{% static 'js/cart.js' %}"></script>
+{% endblock store %}

@@ -1,0 +1,198 @@
+{% extends '_layouts/base.html' %}
+
+{% load static %}
+
+
+{% block banner %}
+    <div class="content-panel">
+        <div class="slider-area ">
+            <!-- Mobile Menu -->
+            <div class="slider-active">
+                <div class="single-slider slider-height" data-background="{% static 'img/hero/h1_hero.png' %}">
+                    <div class="container">
+                        <div class="row d-flex align-items-center justify-content-between">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">
+                                <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
+                                    <img src="{% static 'img/hero/hero_man.png' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
+                                <div class="hero__caption">
+                                    <h1 data-animation="fadeInRight" data-delay=".6s">ДЛЯ ЛЮБИТЕЛІВ ПАРУ</h1>
+                                    <p data-animation="fadeInRight" data-delay=".8s">Pod-системи / Рідини / Комплектуючі</p>
+                                    <!-- Hero-btn -->
+                                    <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
+                                        <a href="/catalog/index" class="btn hero-btn" style="font-size:20px;">Каталог</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-slider slider-height" data-background="{% static 'img/hero/h1_hero.jpg' %}">
+                    <div class="container">
+                        <div class="row d-flex align-items-center justify-content-between">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">
+                                <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
+                                    <img src="{% static 'img/hero/hero_man.png' %}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock banner %}
+
+
+{% block products %}
+    <section class="latest-product-area padding-bottom">
+        <div class="container">
+            <div class="row product-btn d-flex justify-content-end align-items-end">
+                <!-- Section Tittle -->
+                <div class="col-xl-4 col-lg-5 col-md-5">
+                    <div class="section-tittle mb-30">
+                        <h2 style="margin-top:50px;color:#29292A">Новинки</h2>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-lg-7 col-md-7">
+                    <div class="properties__button f-right">
+                        <!--Nav Button  -->
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Всі</a>
+                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Популярні</a>
+                                <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Знижка</a>
+                            </div>
+                        </nav>
+                        <!--End Nav Button  -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nav Card -->
+            {% if user.username == 'adminVitalii' %}
+                <a href="/create" style="text-decoration: none;font-size:22px;color:#F7A900">Додати новинку +</a>
+            {% endif %}
+            <div class="tab-content" id="nav-tabContent">
+                    <div class="row">
+                        {% for n in all_new_product %}
+                        <div class="col-xl-4 col-lg-4 col-md-6" style="top:0px">
+                            <div class="single-product mb-60">
+                                <div class="product-img">
+                                    <img src="/media/{{n.photo}}" alt="">
+                                </div>
+                                <div class="product-caption">
+                                    <div class="product-ratting">
+                                        <p>{{ n.producer }}</p>
+                                    </div>
+                                    <h4 ><a href="#" style="text-decoration:none">{{ n.name }}</a></h4>
+                                    <div class="price">
+                                        <ul>
+                                            <li style="color:#F7A900">₴ {{ n.price }}</li>
+                                        </ul>
+                                        {% if user.username == 'adminVitalii' %}
+											<a href="/delete/{{ n.id }}" style="text-decoration: none;font-size:15px;color:red">Видалити</a>
+										{% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+            </div>
+        </div>
+    </section>
+<hr size="20px;">
+<iframe width="70%" height="550px" style="margin-left:15%" src="https://www.youtube.com/embed/i0UPDEjQD2k?si=XgUIKiWnS8lSo2LQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock products %}
+
+{% block footer %}
+    <div class="footer-area footer-padding">
+           <div class="container">
+               <div class="row d-flex justify-content-between">
+                   <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
+                      <div class="single-footer-caption mb-50">
+                        <div class="single-footer-caption mb-30">
+                             <!-- logo -->
+                            <div class="footer-logo">
+                                <a href="index.html"><img src="{% static 'img/logo/logo.png' %}" alt="" style="width:140px;"></a>
+                            </div>
+                            <div class="footer-tittle">
+                                <div class="footer-pera">
+                                    <p>Купити електронну сигарету в Україні вже давно не складає труднощів, і навіть якщо ви живете у віддалених частинах нашої країни, не бійтесь замовляти електронні сигарети через компанії перевізників, адже пар це – самий простий і безболісний спосіб кинути палити.</p>
+                               </div>
+                            </div>
+                        </div>
+                      </div>
+                   </div>
+                   <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
+                       <div class="single-footer-caption mb-50">
+                           <div class="footer-tittle">
+                               <h4>Інформація</h4>
+                               <ul>
+                                   <li><a href="#"> Головна</a></li>
+                                   <li><a href="#"> Програма лояльності</a></li>
+                                   <li><a href="#"> Доставка та оплата</a></li>
+                                   <li><a href="#">  Гарантія і повернення товару</a></li>
+                                   <li><a href="#">  Блог</a></li>
+                                   <li><a href="#">  Контакти</a></li>
+                               </ul>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
+                       <div class="single-footer-caption mb-50">
+                           <div class="footer-tittle">
+                               <h4>Категорії</h4>
+                               <ul>
+                                   <li><a href="#"> JUUL</a></li>
+                                   <li><a href="#"> Pod-системи</a></li>
+                                   <li><a href="#"> Атомайзери</a></li>
+                                   <li><a href="#"> Рідина</a></li>
+                                   <li><a href="#"> Комплектуючі</a></li>
+                                   <li><a href="#"> Моди</a></li>
+                                   <li><a href="#"> Самозаміс</a></li>
+                               </ul>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
+                       <div class="single-footer-caption mb-50">
+                           <div class="footer-tittle">
+                               <h4>Ми в мережі</h4>
+                               <ul>
+                                <li><a href="#">Ми дуже любимо наших передплатників у соціальних мережах і завжди тішимо їх цікавими конкурсами</a></li>
+                            </ul>
+                               <div class="col-xl-5 col-lg-5 col-md-5">
+                    <div class="footer-copy-right f-right">
+                        <!-- social -->
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <!-- Footer bottom -->
+               <div class="row">
+                <div class="col-xl-7 col-lg-7 col-md-7">
+                    <div class="footer-copy-right">
+                        © Інтернет-магазин електронних сигарет – «Soska Vape Shop» 2015-2023</div>
+                </div>
+            </div>
+           </div>
+       </div>
+{% endblock footer %}

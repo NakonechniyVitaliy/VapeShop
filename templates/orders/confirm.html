@@ -1,0 +1,52 @@
+{% extends '_layouts/base.html' %}
+
+{% load static %}
+
+{% block breadcrumb %}
+    <div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">{{ title }}</h3>
+                <ul class="breadcrumb-tree">
+                    <li><a href="#">{{ app }}</a></li>
+                    <li class="active">{{ page }}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+{% endblock breadcrumb %}
+
+{% block e-mail %}
+<br>
+<form action="/orders/confirm/{{init_list}}" method="post">
+    {% csrf_token %}
+    <p style="text-align:center">
+        <label for="email" style="text-align:center">
+            Введіть Ваш E-Mail для зв'язку із службою доставки:
+        </label>
+        <br>
+        <input type="email" id="email" name="email" class="inp" required>
+    </p>
+    <br>
+    <p style="text-align:center">
+        <button type="submit" id="submit" class="btn btn-dark btn-block btn-lg" style="text-align:center;border-radius:0px;border:0px">
+            Підтвердити
+        </button>
+    </p>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<style>
+
+</style>
+{% endblock e-mail %}

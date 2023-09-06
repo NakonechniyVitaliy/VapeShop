@@ -1,0 +1,103 @@
+<!doctype html>
+{% load static %}
+<html class="no-js" lang="uk">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Soska - {{title}}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+            <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
+            <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+            <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+            <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+            <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+            <link rel="stylesheet" href="{% static 'css/style.css' %}">
+            <script src="https://code.jquery.com/jquery-latest.js"></script>
+        <!-- CSS 2 -->
+            <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min_2.css' %}"/>
+            <link type="text/css" rel="stylesheet" href="{% static 'css/slick_2.css' %}"/>
+            <link type="text/css" rel="stylesheet" href="{% static 'css/slick-theme_2.css' %}"/>
+            <link type="text/css" rel="stylesheet" href="{% static 'css/nouislider.min_2.css' %}"/>
+            <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+            <link type="text/css" rel="stylesheet" href="{% static 'css/style_2.css' %}"/>
+            <script src="{% static 'js/jquery.min_2.js' %}"></script>
+   </head>
+
+   <body>
+        {% include '_fragments/preloader.html' %}
+        {% include '_fragments/header.html' %}
+        {% block breadcrumb %}{% endblock breadcrumb %}
+        {% block store %}{% endblock store %}
+        {% block cart %}{% endblock cart %}
+        {% block banner %}{% endblock banner %}
+        {% block products %}{% endblock products %}
+        {% block e-mail %}{% endblock e-mail %}
+        {% block thanks %}{% endblock thanks %}
+        {% block failed %}{% endblock failed %}
+        {% block signup %}{% endblock signup %}
+        {% block reports %}{% endblock reports %}
+        {% block signin %}{% endblock signin %}
+        {% block create %}{% endblock create %}
+        {% block create_home %}{% endblock create_home %}
+        {% block delete %}{% endblock delete %}
+        {% block detail %}{% endblock detail %}
+        {% block news %}{% endblock news %}
+   <footer>
+        {% include '_fragments/footer.html' %}
+   </footer>
+
+	<!-- JS here -->
+
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="{% static 'js/modernizr-3.5.0.min.js' %}"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/slick.min.js' %}"></script>
+
+		<!-- One Page, Animated-HeadLin -->
+        <script src="{% static 'js/wow.min.js' %}"></script>
+		<script src="{% static 'js/animated.headline.js' %}"></script>
+        <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+        <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+		<script src="{% static 'js/jquery.sticky.js' %}"></script>
+
+        <!-- contact js -->
+        <script src="{% static 'js/contact.js' %}"></script>
+        <script src="{% static 'js/jquery.form.js' %}"></script>
+        <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+        <script src="{% static 'js/mail-script.js' %}"></script>
+        <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+
+		<!-- Jquery Plugins, main Jquery -->
+        <script src="{% static 'js/plugins.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+
+        <!-- JS 2 -->
+
+        <script src="{% static 'js/bootstrap.min_2.js' %}"></script>
+		<script src="{% static 'js/slick.min.js' %}"></script>
+		<script src="{% static 'js/nouislider.min_2.js' %}"></script>
+		<script src="{% static 'js/jquery.zoom.min_2.js' %}"></script>
+		<script src="{% static 'js/main_2.js' %}"></script>
+    </body>
+</html>

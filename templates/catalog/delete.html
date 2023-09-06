@@ -1,0 +1,61 @@
+{% extends '_layouts/base.html' %}
+
+{% load static %}
+
+{% block breadcrumb %}
+    <div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">{{ title }}</h3>
+                <ul class="breadcrumb-tree">
+                    <li><a href="#">{{ app }}</a></li>
+                    <li class="active">{{ page }}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+{% endblock breadcrumb %}
+
+{% block delete %}
+<h1 style="сolor:#29292A;text-align:center">Ви дійстно бажаете видалити цей товар?</h1>
+<div id="catalog-panel" class="row">
+    <div class="col-md-4 col-xs-6" style="left:42%">
+        <div class="product" style="width:50%;">
+            <div class="product-img">
+                <img style="width:100%" src="/media/{{target_product.photo}}" alt="">
+                <div class="product-label"></div>
+            </div>
+            <div class="product-body">
+                <p class="product-category">{{target_product.category}}</p>
+                <h3 class="product-name"><a>{{target_product.name}}</a></h3>
+                <h4 class="product-price">{{target_product.price}} грн</h4>
+                    <div class="product-btns">
+                        <h4 class="product-price" style="display:none">{{target_product.price}} грн</h4>
+                        <input type="hidden" value="{{p.id}}">
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <br>
+        <form action="/catalog/delete/{{ target_product.id }}" method="post">
+        {% csrf_token %}
+                <input type="submit" value="Видалити" class="btn header-btn" style="width: 190px; padding: 5px;left:45%;">
+        </form>
+<br>
+<br>
+<br>
+<style>
+    .btn:hover{
+    background:red;
+    color:white;
+    }
+
+</style>
+{% endblock delete %}

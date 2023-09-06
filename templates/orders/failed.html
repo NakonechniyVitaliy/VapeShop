@@ -1,0 +1,28 @@
+{% extends '_layouts/base.html' %}
+
+{% load static %}
+
+{% block breadcrumb %}
+    <div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">{{ title }}</h3>
+                <ul class="breadcrumb-tree">
+                    <li><a href="#">{{ app }}</a></li>
+                    <li class="active">{{ page }}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+{% endblock breadcrumb %}
+
+{% block failed %}
+    <h1 style="text-align:center;color:#29292A">Щось пішло не так :( Не вдалося відправити чек на e-Mail:</h1>
+    <p style="text-align:center; font-size:30px;color:#F7A900">{{email}}</p>
+{% endblock failed %}

@@ -1,0 +1,69 @@
+{% extends '_layouts/base.html' %}
+
+{% load static %}
+
+{% block breadcrumb %}
+    <div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">{{ title }}</h3>
+                <ul class="breadcrumb-tree">
+                    <li><a href="#">{{ app }}</a></li>
+                    <li class="active">{{ page }}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+{% endblock breadcrumb %}
+
+{% block signup %}
+    <div class="col-lg-6 col-md-6" style="float:none;text-align:center;align:center;margin-left:25%;">
+    <div class="login_part_form">
+        <div class="login_part_form_iner">
+            <h1 style="color:#29292A;">Реєстрація <br>
+                </h1>
+            <form id="form1" class="row contact_form" action="/accounts/sign_up" method="post" onsubmit="return true">
+                {% csrf_token %}
+                <div class="col-md-12 form-group p_star">
+                    <input style="width:60%; margin-left:20%;" type="text" class="form-control" id="login" name="login" value="" placeholder="Логін:" required>
+                    <div id="login-mess" class="mess" style="color:red"></div>
+                </div>
+
+                <div class="col-md-12 form-group p_star">
+                    <input style="width:60%; margin-left:20%;" type="password" class="form-control" id="pass1" name="pass1" value="" placeholder="Пароль:">
+                    <div id="pass1-mess" class="mess" style="color:red"></div>
+                </div>
+
+                <div class="col-md-12 form-group p_star">
+                    <input style="width:60%; margin-left:20%;" type="password" class="form-control" id="pass2" name="pass2" value="" placeholder="Повторний пароль:">
+                    <div id="pass2-mess" class="mess" style="color:red"></div>
+                </div>
+
+                <div class="col-md-12 form-group p_star">
+                    <input style="width:60%; margin-left:20%;" type="email" class="form-control" id="email" name="email" value="" placeholder="E-Mail:">
+                    <div id="email-mess" class="mess" style="color:red"></div>
+                </div>
+
+                <div class="col-md-12 form-group">
+                    <button id="submit" type="submit" value="submit" class="btn_3">
+                        Зареєструватися
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+<script src="{% static 'js/signup.js' %}"></script>
+{% endblock signup %}

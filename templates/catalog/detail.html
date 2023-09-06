@@ -1,0 +1,90 @@
+{% extends '_layouts/base.html' %}
+
+{% load static %}
+
+{% block breadcrumb %}
+    <div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">{{ title }}</h3>
+                <ul class="breadcrumb-tree">
+                    <li><a href="#">{{ app }}</a></li>
+                    <li class="active">{{ page }}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+{% endblock breadcrumb %}
+
+
+{% block detail %}
+<div>
+    <h1 style="margin-left:120px;">{{target_product.name}}</h1>
+</div>
+    <div class="container mt-5 mb-5 ml-1" style="left:0px;width:1000px">
+    <div class="row d-flex justify-content-center" style="display:inline-block">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="row" style="width:100%;">
+                    <div class="col-md-6">
+                        <div class="images p-3">
+                            <div class="text-center p-4"> <img id="main-image" src="/media/{{target_product.photo}}" width="400" /> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="left:55%;">
+                        <div class="product p-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i> <span class="ml-1">Back</span> </div> <i class="fa fa-shopping-cart text-muted"></i>
+                            </div>
+                            <div class="mt-4 mb-3" style="display:inline-block">
+                                <div style="display:inline-block">
+                                    <h5>Ціна:  </h5>
+                                </div>
+                                <div style="display:inline-block">
+                                    <h2 style="color:#F7A900" id="product_price">{{target_product.price}}</h2>
+                                </div>
+                                <br>
+                                <div style="display:inline-block">
+                                    <h5>Категорія: </h5>
+                                </div>
+                                <div style="display:inline-block">
+                                    <h4>{{target_product.category}}</h4>
+                                </div>
+                                <br>
+                                <div style="display:inline-block">
+                                    <h5>Виробник: </h5>
+                                </div>
+                                <div style="display:inline-block">
+                                    <h4>{{target_product.producer}}</h4>
+                                </div>
+                            </div>
+                            <p class="about">{{target_product.about}}</p>
+                            <input type="hidden" id="product_id" value="{{target_product.id}}">
+                            <div id="catalog-panel" class="cart mt-4 align-items-center">
+                                <button class="add-to-cart-btn" style="background: #43F727;border-radius:10px;width:170px;height:50px;font-size:16px">
+                                    <i class="fa fa-shopping-cart" ></i>
+                                        До кошика
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+<script src="{% static 'js/cart_detail.js' %}"></script>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock detail %}

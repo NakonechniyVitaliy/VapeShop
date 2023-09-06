@@ -1,0 +1,54 @@
+{% extends '_layouts/base.html' %}
+
+{% load static %}
+
+{% block breadcrumb %}
+    <div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">{{ title }}</h3>
+                <ul class="breadcrumb-tree">
+                    <li><a href="#">{{ app }}</a></li>
+                    <li class="active">{{ page }}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+{% endblock breadcrumb %}
+
+{% block create_home %}
+<div class="content-panel">
+    <!-- =================================================== -->
+    <div>
+        <form method="post" action="/create" enctype="multipart/form-data" style="margin-left:13%">
+            {% csrf_token %}
+            <div id="form_template" style="display:inline-block">
+                {% for field in form %}
+                    <div class="form-group" style="color:#29292A; display:inline-block;margin-left:20px">
+                        {{ field.label_tag }}
+                        <div>{{ field }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            <p >
+                <input type="submit" value="Зберегти" class='btn btn-success my-btn' style="background:#43F727;color:#29292A;margin-left:35%;margin-top:5%;">
+                <input type="reset" value="Відмінити" class='btn btn-danger my-btn' style="background:#F7A900;color:#29292A;margin-top:5%;">
+            </p>
+        </form>
+    </div>
+    <hr>
+    <!-- =================================================== -->
+</div>
+<style>
+    main{
+        padding:20px;
+    }
+</style>
+{% endblock create_home %}
+

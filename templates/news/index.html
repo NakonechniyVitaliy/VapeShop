@@ -1,0 +1,186 @@
+{% extends '_layouts/base.html' %}
+
+{% load static %}
+
+{% block breadcrumb %}
+    <div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">{{ title }}</h3>
+                <ul class="breadcrumb-tree">
+                    <li><a href="#">{{ app }}</a></li>
+                    <li class="active">{{ page }}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+{% endblock breadcrumb %}
+
+{% block news %}
+    <div class="container">
+  <!--Section: News of the day-->
+  <section class="border-bottom pb-4 mb-5">
+    <div class="row gx-5">
+      <div class="col-md-6 mb-4">
+        <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jFo7x9A9TmM?si=gxpClPHV-6oPnmwU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3" style="background:#F7A900">Нове відео</span>
+        <h4><strong>Вейпи у 2023</strong></h4>
+        <p class="text-muted">
+          Який вейп краще вибрати в 2023 році? Блогер Арсеній Петров
+          допоможе вам з вирішенням цього питання, переглянувши це відео
+          ви зможете вибрати ідеальний вейп для себе!
+        </p>
+        <button type="button" class="btn btn-primary" style="background:#43F727;border:none;color:#29292A">Детальніше</button>
+      </div>
+    </div>
+  </section>
+  <!--Section: News of the day-->
+
+  <!--Section: Content-->
+  <section>
+    <div class="row gx-lg-5">
+      <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+        <!-- News block -->
+        <div>
+          <!-- Featured image -->
+          <div class="bg-image hover-overlay shadow-1-strong ripple rounded-5 mb-4"
+            data-mdb-ripple-color="light">
+            <iframe width="360" height="240" src="https://www.youtube.com/embed/l3ePSRhhl-4?si=UH1NKD3ULqpZcp74&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
+
+          <!-- Article data -->
+          <div class="row mb-3">
+            <div class="col-6">
+              <a href="" class="text-info">
+                Рідини
+              </a>
+            </div>
+
+            <div class="col-6 text-end">
+              <u> 15.07.2020</u>
+            </div>
+          </div>
+
+          <!-- Article title and description -->
+          <a href="" class="text-dark">
+            <h5>ФОРМАЛЬДЕГІД У РІДИНАХ</h5>
+
+            <p>
+              Сьогодні, ми розповімо, що таке формальдегід?
+              Та за яких умов відбувається вивільнення формальдегіду при парінні?
+              Дивіться це відео до кінця - і ви про все дізнаєтеся?
+            </p>
+          </a>
+          <hr />
+          <!-- News -->
+        </div>
+        <!-- News block -->
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <!-- News block -->
+        <div>
+          <!-- Featured image -->
+          <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4"
+            data-mdb-ripple-color="light">
+            <iframe width="360" height="240" src="https://www.youtube.com/embed/UuJJNjpCPqs?si=d0xB7Uh0uB8OFsOx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
+
+          <!-- Article data -->
+          <div class="row mb-3">
+            <div class="col-6">
+              <a href="" class="text-danger">
+                POD-системи
+              </a>
+            </div>
+
+            <div class="col-6 text-end">
+              <u> 15.07.2020</u>
+            </div>
+          </div>
+
+          <!-- Article title and description -->
+          <a href="" class="text-dark">
+            <h5>Бюджетні под системи</h5>
+
+            <p>
+              ТОП 5 под-систем до 20$! Розповімо чи є бюджетні, але якісні варіанти,
+              які ж купують найчастіше у нашому онлайн та офлайн
+              магазинах і який зробити вибір!
+            </p>
+          </a>
+
+          <hr />
+
+        </div>
+        <!-- News block -->
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <!-- News block -->
+        <div>
+          <!-- Featured image -->
+          <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4"
+            data-mdb-ripple-color="light">
+            <iframe width="360" height="240" src="https://www.youtube.com/embed/k1HzgN-f1Jc?si=7dZcAIwa7DC6WY_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
+
+          <!-- Article data -->
+          <div class="row mb-3">
+            <div class="col-6">
+              <a href="" class="text-warning">
+                Нікотин
+              </a>
+            </div>
+
+            <div class="col-6 text-end">
+              <u> 16.08.2020</u>
+            </div>
+          </div>
+
+          <!-- Article title and description -->
+          <a href="" class="text-dark">
+            <h5>Нікотин у IQOS VEEV</h5>
+
+            <p>
+              Мене запитали в коментах, скільки нікотину в подах VEEV.
+              Питання то ніби і просте, але відповідь на нього
+              трошки складніша, ніж здається.
+            </p>
+          </a>
+
+          <hr />
+
+          <!-- News -->
+
+        </div>
+        <!-- News block -->
+      </div>
+    </div>
+  </section>
+  <!--Section: Content-->
+</div>
+{% endblock news %}
